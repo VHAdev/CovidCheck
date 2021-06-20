@@ -61,3 +61,26 @@ footer a {
 .alerta {
     padding: 10px;
 }
+
+
+svg{
+    width: 14%;
+    margin-right: 2%;
+}
+
+.navbar{
+	padding: 0px!important;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+li {
+    width: 20%;
+}
+
+ul {
+    justify-content: flex-end;
+}
+

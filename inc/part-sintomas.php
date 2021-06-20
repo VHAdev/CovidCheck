@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./assets/dist/css/estilo.css" media="screen" />
-    <title>Gardener</title>
-</head>
-
-<body>
-
+<?php 
+if(!isset($_GET['cpf']) AND !isset($_GET['nome']) ){
+    header('location: ./?off');
+}
+?>
     <div class="container-fluid wallpaper-form">
         <div class="row">
             <div class="col-12">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-6">
-                            <form action="">
+                            <form class="send-pesquisa">
 
                             <div class="alerta">
                                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -411,7 +402,7 @@
                                     <div class="col">
                                         <div class="form-group-box text-center">
                                             <div class="form-title">
-                                                <a> <b>Temperatura</b> </a>
+                                                <a> <b>Temperatura corporal maior que 36,9º</b> </a>
                                             </div>
                                             <div class="form-group-box-check d-flex text-center my-3 justify-content-center">
                                                 <div class="mx-3 d-block">
