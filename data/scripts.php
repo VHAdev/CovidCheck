@@ -1,7 +1,6 @@
 <?php
 //start session
 session_start();
-$_SESSION['teste'] = "passou";
 
 // CONNECT DATABASE 
 require './_connect.php';

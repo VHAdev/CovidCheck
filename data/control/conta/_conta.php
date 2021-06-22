@@ -28,6 +28,7 @@ if(isset($_GET['atualizar']) and $_GET['atualizar'] == "info"){
     ));
   
     //echo $stmt->rowCount();
+    $_SESSION['empresa'] = $_GET['empresa'];
     $_SESSION['usuario'] = $_GET['id'];
   } catch(PDOException $e) {
     echo 'Error: ' . $e->getMessage();

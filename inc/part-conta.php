@@ -9,7 +9,8 @@
 ?>
 
 <script>
-    if(<?php echo $value ?> != true){
+let value = ""+<?php echo $value ?>;
+    if(value  && value != true){
         window.location.href = "../";
     }
 </script>
@@ -48,10 +49,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Empresa</label>
                                         <div class="col-lg-9">
-                                            <div class="field-att mb-2">
-                                                <span><strong data-empresa></strong></span>
-                                            </div>
-                                            <input class="form-control" type="text" placeholder="Empresa" name="empresa" data-value>
+                                            <input class="form-control" type="text" placeholder="Empresa" data-empresa name="empresa" value="<?php echo $_SESSION['empresa']?> " disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -84,7 +82,6 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancelar">
                                             <input type="button" class="btn btn-success" value="Salvar alterações">
                                         </div>
                                     </div>

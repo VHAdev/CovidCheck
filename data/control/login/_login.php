@@ -6,15 +6,16 @@ if(isset($_GET['logar'])){
     $usuario = htmlspecialchars($_GET['usuario']);
     $password = htmlspecialchars($_GET['senha']);
 
-    $consulta = $connect->query("SELECT usuario, senha FROM gd_gestor WHERE senha = '$password' AND usuario = '$usuario';");
+    $consulta = $connect->query("SELECT * FROM gd_gestor WHERE senha = '$password' AND usuario = '$usuario';");
    
     $result = $consulta->fetch(PDO::FETCH_ASSOC);
-    
-    if(count($result) >= 2):
+
+    if($result != false):
        
         $_SESSION['conectado'] = true;
         
         $_SESSION['usuario'] = $usuario;
+        $_SESSION['empresa'] = $result['empresa']
         ?>
         <script>
             window.location.href = "../relatorios/admin.php"

@@ -1,13 +1,28 @@
 let href = window.location.href.split("/")
 
+let $href_A = "";
+
 if(href[2] == "localhost"){
-    if(href[5]){
-        $href_A = "../"
+    if(href.length > 5){
+        for(let x = 3; x < href.length; x++){
+            $href_A += "../" 
+            if((href.length - 1) == x){
+                $href_A += "CovidCheckGardener/"
+            }
+        }
     }else{
         $href_A = "./"
     }
+    $href_B = href[2]+"/"+href[3]
+   
 }else{
-    $href_A = './';
+    for(let x = 3; x < href.length; x++){
+        $href_A += "../" 
+        if((href.length - 1) == x){
+            $href_A += "./"
+        }
+    }
+    $href_B = href[2]
 }
 
 let logout = function($coord){
@@ -20,11 +35,11 @@ let logout = function($coord){
                 let text = this.responseText
                 text = text.split("\n")
                 if(text[1] == "deslogado"){
-                    window.location.href = "http://"+href[2]+"/relatorios/login.php";
+                    window.location.href = "http://"+$href_B+"/relatorios/login.php";
                 }
             }
 
-            xhttp.open("GET",  $href_A+"../data/scripts.php?sair", true);
+            xhttp.open("GET",  $href_A+"data/scripts.php?sair", true);
             xhttp.send();
         }
     });
@@ -68,7 +83,7 @@ let conta_request = function($coord){
                     document.querySelector("[name='usuario']").dataset.value = item['usuario'];
                 }
 
-                xhttp.open("GET",  $href_A+"../data/scripts.php?conta=info", true);
+                xhttp.open("GET",  $href_A+"data/scripts.php?conta=info", true);
                 xhttp.send();
             }
         }
@@ -100,7 +115,7 @@ let conta_att = function($coord){
                 window.location.reload();
                 //console.log(this.responseText)
             }
-            xhttp.open("GET",  $href_A+"../data/scripts.php?atualizar=info&"+dcl, true);
+            xhttp.open("GET",  $href_A+"data/scripts.php?atualizar=info&"+dcl, true);
             xhttp.send();
         }
     }
@@ -132,10 +147,12 @@ let save_form = function($coord, $fields){
             let respost = this.responseText
             respost = respost.split('\n')
             if(respost[1] == "1"){
-                window.location.href = $href_A;
+                alert("RELATÓRIO ENVIADO COM SUCESSO!");
+                setTimeout(()=>{
+                    window.location.href = $href_A;
+                }, 100);
             }
         }
-        console.log(dcl)
 
         xhttp.open("GET",  $href_A+"data/scripts.php?cadastro&"+dcl);
         xhttp.send();
@@ -143,6 +160,27 @@ let save_form = function($coord, $fields){
     }
 }
 
+//RECUPERANDO OS DADOS GERAIS
+let recover_form = function($coord){
+    document.addEventListener("DOMContentLoaded", ()=>{
+        let $url = window.location.href.split("/")
+        for(let itens of $url){
+            if(itens == $coord){
+                const xhttp = new XMLHttpRequest();
+
+                xhttp.onload = function() {
+                    document.querySelector(".js-table-dates").innerHTML = this.responseText;
+                }
+
+                xhttp.open("GET",  $href_A+"data/scripts.php?campos", true);
+                xhttp.send();
+            }
+        }
+    })
+}
+
+//==============================//=================================//
+//==============================//=================================//
 
 // CALL FUNCTIONS:
 if(document.querySelector("[data-logout]")){
@@ -174,3 +212,5 @@ if(document.querySelector("[name='pesquisa']")){
     save_form(".send-pesquisa", fields)
     
 }
+
+recover_form("admin.php")
