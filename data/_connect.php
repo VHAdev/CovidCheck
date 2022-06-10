@@ -7,11 +7,11 @@ $_SESSION["erros"] = "(*)";
 
 $host_name = "localhost";
 $database_name = "covidcheck";
-//$database_name = "deliv789_covidcheck";
+//$database_name = "";
 $database_login = "root";
-//$database_login = "deliv789_vato";
+//$database_login = "";
 $database_password = "";
-//$database_password = "teste@teste123";
+//$database_password = "";
 
 /* variável de conexão PDO */
 try {
