@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Covid Check Gardener</title>
+    <title>Covid Check</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://battleofmagic.online/assets/dist/css/estilo.css" media="screen" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -25,8 +25,8 @@ if($_SESSION['conectado'] == true):
 
 $url = explode("/", $_SERVER["REQUEST_URI"]);
 
-if($url[1] == "CovidCheckGardener"):
-    $href = "http://localhost/CovidCheckGardener/";
+if($url[1] == "CovidCheck"):
+    $href = "http://localhost/CovidCheck/";
 else:
   if(count($url) >= 3):
     $href = "../";
