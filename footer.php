@@ -1,14 +1,14 @@
 <footer>
-  <p>© 2021 Gardener. All rights reserved. Developed Vato dev </p>
-  <p><a href="gardenerengenharia.com.br">Gardener Engenharia</a></p>
+  <p>Developed Vato dev </p>
+  <p><a href=""></a></p>
 </footer>
 
 <?php 
 
 $url = explode("/", $_SERVER["REQUEST_URI"]);
 
-if($url[1] == "CovidCheckGardener"):
-    $href = "http://localhost/CovidCheckGardener/";
+if($url[1] == "CovidCheck"):
+    $href = "http://localhost/CovidCheck/";
 elseif($url[1] == "relatorios"):
   $href = "../";
 endif;
